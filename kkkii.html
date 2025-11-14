@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Sitio Web</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2e7d32;
+      color: white;
+      padding: 10px 20px;
+      position: relative;
+    }
+    .logo {
+      text-align: center;
+      flex-grow: 1;
+    }
+    .search-bar input {
+      padding: 5px;
+    }
+    .menu-container {
+      position: relative;
+    }
+    .menu-options {
+      display: none;
+      position: absolute;
+      top: 40px;
+      left: 10px;
+      background-color: #388e3c;
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 100;
+    }
+
+    /* --- CARRUSEL PROFESIONAL INTEGRADO --- */
+    .slider-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      height: 450px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+      background: #000;
+    }
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .slide.active {
+      opacity: 1;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .dots {
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .dot.active {
+      background: #fff;
+      transform: scale(1.2);
+    }
+
+    footer {
+      background-color: #c8e6c9;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="menu-container" onmouseover="showMenu()" onmouseleave="hideMenu()">
+    <div class="menu-icon">☰</div>
+    <div class="menu-options" id="menu">
+      <!-- Sección: Opciones / Menú de la escuela -->
+<section id="school-options" class="school-options" aria-label="Opciones principales de la escuela">
+  <header class="school-options__header">
+    <h2>Opciones rápidas</h2>
+    <p class="muted">Accede a las áreas más importantes de la escuela</p>
+  </header>
+
+  <nav class="school-options__nav" role="navigation" aria-labelledby="school-options-title">
+    <ul class="school-options__list">
+      <li class="option-item">
+        <a href="/admisiones" class="option-link" aria-describedby="opt-admisiones-desc">
+          <!-- Icono SVG pequeño -->
+          <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 2L3 7v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V7l-9-5zM12 12.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 7.5 12 7.5 14.5 8.62 14.5 10 13.38 12.5 12 12.5z"/>
+          </svg>
+          <div class="option-content">
+            <strong>Admisiones</strong>
+            <span id="opt-admisiones-desc" class="option-desc">Información sobre inscripciones y requisitos</span>
+          </div>
+        </a>
+      </li>
+
+      <li class="option-item">
+        <a href="/plan-de-estudios" class="option-link" aria-describedby="opt-planes-desc">
+          <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4 6h16v2H4V6zm0 4h10v2H4v-2zm0 4h16v2H4v-2z"/>
+          </svg>
+          <div class="option-content">
+            <strong>Planes de estudio</strong>
+            <span id="opt-planes-desc" class="option-desc">Materias, mallas y objetivos por carrera</span>
+          </div>
+        </a>
+      </li>
+
+      <li class="option-item">
+        <a href="/calendario" class="option-link" aria-describedby="opt-calendario-desc">
+          <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M7 10h5v5H7z"/><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zM5 8h14v10H5V8z"/>
+          </svg>
+          <div class="option-content">
+            <strong>Calendario</strong>
+            <span id="opt-calendario-desc" class="option-desc">Fechas de inicio, exámenes y eventos</span>
+          </div>
+        </a>
+      </li>
+
+      <li class="option-item">
+        <a href="/portal-estudiantes" class="option-link" aria-describedby="opt-portal-desc">
+          <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+          <div class="option-content">
+            <strong>Portal estudiantil</strong>
+            <span id="opt-portal-desc" class="option-desc">Acceso a calificaciones y recursos</span>
+          </div>
+        </a>
+      </li>
+
+      <li class="option-item">
+        <a href="/contacto" class="option-link" aria-describedby="opt-contacto-desc">
+          <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M21 8V7l-3 2-2-1-6 4-5-3v8h18V8z"/>
+          </svg>
+          <div class="option-content">
+            <strong>Contacto</strong>
+            <span id="opt-contacto-desc" class="option-desc">Teléfonos, direcciones y formularios</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</section>
+      </div>
+    </div>
+
+  <div class="logo">
+    <img src="c1.png" width="100" height="100">
+  </div>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Buscar...">
+  </div>
+</header>
+
+<main>
+
+  <!-- ---- CARRUSEL PROFESIONAL ---- -->
+  <div class="slider-container">
+    <div class="slide active"><img src="https://via.placeholder.com/900x450?text=Imagen+1"></div>
+    <div class="slide"><img src="https://via.placeholder.com/900x450?text=Imagen+2"></div>
+    <div class="slide"><img src="https://via.placeholder.com/900x450?text=Imagen+3"></div>
+    <div class="slide"><img src="https://via.placeholder.com/900x450?text=Imagen+4"></div>
+
+    <div class="dots">
+      <div class="dot active" onclick="goToSlide(0)"></div>
+      <div class="dot" onclick="goToSlide(1)"></div>
+      <div class="dot" onclick="goToSlide(2)"></div>
+      <div class="dot" onclick="goToSlide(3)"></div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>Sección inferior con más contenido</p>
+</footer>
+
+<script>
+  function showMenu() {
+    document.getElementById('menu').style.display = 'block';
+  }
+  function hideMenu() {
+    document.getElementById('menu').style.display = 'none';
+  }
+
+  /* --- SCRIPT DEL CARRUSEL --- */
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+
+    currentSlide = index;
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function goToSlide(i) {
+    showSlide(i);
+  }
+
+  setInterval(nextSlide, 4000);
+</script>
+
+</body>
+</html>
