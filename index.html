@@ -204,7 +204,143 @@
 
 <footer>
   <p>Sección inferior con más contenido</p>
-</footer>
+</footer> 
+  <!-- GALERÍA MODERNA DEL PLANTEL -->
+<section class="gallery">
+  <h2>Galería del Plantel</h2>
+  <div class="gallery-container">
+    <!-- 20 imágenes con descripción -->
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+1" alt="Foto 1">
+      <div class="overlay">Entrada principal del plantel</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+2" alt="Foto 2">
+      <div class="overlay">Área de recepción</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+3" alt="Foto 3">
+      <div class="overlay">Biblioteca escolar</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+4" alt="Foto 4">
+      <div class="overlay">Laboratorio de ciencias</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+5" alt="Foto 5">
+      <div class="overlay">Sala de cómputo</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+6" alt="Foto 6">
+      <div class="overlay">Cancha deportiva</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+7" alt="Foto 7">
+      <div class="overlay">Auditorio escolar</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+8" alt="Foto 8">
+      <div class="overlay">Pasillos principales</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+9" alt="Foto 9">
+      <div class="overlay">Área de descanso</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+10" alt="Foto 10">
+      <div class="overlay">Comedor escolar</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+11" alt="Foto 11">
+      <div class="overlay">Jardines exteriores</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+12" alt="Foto 12">
+      <div class="overlay">Salón de música</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+13" alt="Foto 13">
+      <div class="overlay">Salón de arte</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+14" alt="Foto 14">
+      <div class="overlay">Oficinas administrativas</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+15" alt="Foto 15">
+      <div class="overlay">Área de orientación</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+16" alt="Foto 16">
+      <div class="overlay">Laboratorio de idiomas</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+17" alt="Foto 17">
+      <div class="overlay">Zona de talleres</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+18" alt="Foto 18">
+      <div class="overlay">Área de innovación</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+19" alt="Foto 19">
+      <div class="overlay">Espacios verdes</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200?text=Foto+20" alt="Foto 20">
+      <div class="overlay">Vista panorámica del plantel</div>
+    </div>
+  </div>
+</section>
+
+<style>
+.gallery {
+  max-width: 1200px;
+  margin: 50px auto;
+  text-align: center;
+}
+.gallery h2 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(46, 125, 50, 0.9);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+</style>
 
 <script>
   function showMenu() {
@@ -245,3 +381,4 @@
 
 </body>
 </html>
+
